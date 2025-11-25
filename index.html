@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Design Dowon — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="site">
+      <aside class="sidebar">
+        <div class="brand">DESIGN DOWON <small>portfolio</small></div>
+        <div class="meta">
+          <b>Studio Dowon</b>
+         Graphic design &amp; Illustrator
+
+        </div>
+        <nav class="nav">
+          <a href="#">Works</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </aside>
+
+      <main class="gallery-wrap">
+        <div class="topbar">
+          <div class="title">Selected Works</div>
+          <div class="filters">Graphic design · Illustration</div>
+        </div>
+
+        <section class="gallery" id="gallery">
+          <div class="item"><img src="images/3.jpg" alt="thumb" loading="lazy"></div>
+          <div class="item"><img src="images/4.jpg" alt="thumb" loading="lazy"></div>
+          <div class="item"><img src="images/5.jpg" alt="thumb" loading="lazy"></div>
+          <div class="item"><img src="images/6.jpg" alt="thumb" loading="lazy"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="lb" id="lightbox" aria-hidden="true">
+    <div class="close" id="lbClose">✕</div>
+    <img src="" alt="expanded" id="lbImg" />
+  </div>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      const item = e.target.closest('.item img');
+      if (!item) return;
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      lbImg.src = item.src;
+      lb.style.display = 'flex';
+      lb.setAttribute('aria-hidden', 'false');
+    });
+
+    document.getElementById('lbClose').onclick = function() {
+      const lb = document.getElementById('lightbox');
+      lb.style.display = 'none';
+      lb.setAttribute('aria-hidden', 'true');
+      document.getElementById('lbImg').src = '';
+    };
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target.id === 'lightbox') {
+        this.style.display = 'none';
+        this.setAttribute('aria-hidden', 'true');
+        document.getElementById('lbImg').src = '';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+:root{
+  --sidebar-width:200px;
+  --gap:18px;
+  --max-width:1100px;
+  --bg:#fbfaf8;
+  --accent:#111;
+  --muted:#8a8a8a;
+  --radius:6px;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Noto Sans KR',sans-serif;
+  color:var(--accent);
+  background:var(--bg)
+}
+
+.wrap{
+  display:flex;
+  min-height:100vh;
+  align-items:flex-start;
+  justify-content:center;
+  padding:36px
+}
+.site{
+  width:100%;
+  max-width:var(--max-width);
+  display:flex;
+  background:white;
+  box-shadow:0 8px 30px rgba(12,15,20,0.06);
+  border-radius:10px;
+  overflow:hidden
+}
+
+.sidebar{
+  width:var(--sidebar-width);
+  padding:40px 22px;
+  border-right:1px solid #efefef;
+  background:linear-gradient(180deg,#fff,#fbfbfb)
+}
+.brand{
+  font-weight:700;
+  letter-spacing:1px;
+  font-size:24px;
+  margin-bottom:8px
+}
+.brand small{
+  display:block;
+  font-weight:600;
+  color:var(--muted);
+  font-size:16px;
+  margin-top:6px
+}
+.meta{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+  margin-top:18px
+}
+.meta b{
+  color:var(--accent);
+  display:block;
+  margin-bottom:6px
+}
+.nav{
+  margin-top:26px
+}
+.nav a{
+  display:block;
+  color:var(--muted);
+  text-decoration:none;
+  padding:6px 0;
+  font-size:13px
+}
+.nav a:hover{
+  color:var(--accent)
+}
+
+.gallery-wrap{
+  flex:1;
+  padding:28px 28px 60px
+}
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px
+}
+.title{
+  font-weight:700;
+  letter-spacing:1px
+}
+.filters{
+  font-size:13px;
+  color:var(--muted)
+}
+
+.gallery{
+  column-count:2;
+  column-gap:var(--gap)
+}
+.item{
+  display:inline-block;
+  width:100%;
+  margin:0 0 var(--gap);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#f6f6f6
+}
+.item img{
+  width:100%;
+  height:auto;
+  display:block
+}
+
+@media (max-width:980px){
+  .site{flex-direction:column}
+  .sidebar{
+    width:100%;
+    border-right:none;
+    border-bottom:1px solid #efefef
+  }
+  .gallery{column-count:1}
+  :root{--max-width:900px}
+}
+
+.lb{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100
+}
+.lb img{
+  max-width:92%;
+  max-height:92%;
+  border-radius:8px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6)
+}
+.lb .close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer
+}
